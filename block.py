@@ -1,7 +1,7 @@
 try:
     from time import time
     from hashlib import sha3_256
-except ImportError:
+except (time.ImportError, sha3_256.ImportError):
     print("Failed to import a module! Program quitting.")
     exit(1)
 

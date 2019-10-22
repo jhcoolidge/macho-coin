@@ -1,0 +1,2 @@
+pycryptodome == 3.9.0  # Generates Public/Private key pairs for wallet generation.
+Crypto

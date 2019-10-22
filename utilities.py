@@ -1,3 +1,6 @@
+import re
+
+
 def validate_input(choice, parameters):
     """
     Checks the user input, so that the program can run correctly.
@@ -12,3 +15,7 @@ def validate_input(choice, parameters):
         choice = input()
 
     return choice
+
+
+def strip_keys(input, to_strip):
+    return
