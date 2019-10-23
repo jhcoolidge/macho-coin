@@ -17,5 +17,6 @@ def validate_input(choice, parameters):
     return choice
 
 
-def strip_keys(input, to_strip):
-    return
+def strip_keys(inputted, to_strip):
+    inputted = re.sub(to_strip, "", inputted)
+    return inputted

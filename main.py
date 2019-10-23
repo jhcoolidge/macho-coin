@@ -1,8 +1,8 @@
 try:
     from utilities import validate_input
-    import wallet
+    from wallet import generate_wallet
     import block
-except (ImportError, wallet.ImportError, validate_input.ImportError) as e:
+except (ImportError, generate_wallet.ImportError, validate_input.ImportError) as e:
     print("Main files failed to load! Program exiting. Error: " + e)
     exit(1)
 
@@ -23,13 +23,11 @@ def main():
         pass
     elif login == "install":
         # Wallets can be just public keys? Have to be verified? Find out later.
-        key_pair = wallet.generate_keys()
-        private = key_pair[0]
-        public = key_pair[1]
-
-        print(private)
-        print(public)
-        pass
+        wallet = generate_wallet()
+        print("Your wallet address is: " + wallet[0] + "\n")
+        print("Your public key is: " + wallet[1])
+        print("Your private key is: " + wallet[2] + "\nDon't share it with anyone!!!")
+        print("Do not lose these! They cannot be recovered!\n")
 
     print("Welcome to the MachoCoin miner and wallet utility! What would you like to do?")
     choice = input("access/mine/transfer")
