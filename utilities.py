@@ -1,12 +1,25 @@
-import re
+try:
+    from re import sub
+except [ImportError, ModuleNotFoundError] as e:
+    print("There was an error importing a utility package. Exiting program.")
+    exit(1)
 
 
 def validate_input(choice, parameters):
     """
-    Checks the user input, so that the program can run correctly.
-    Choice is a string value.
-    Parameters is a list of possible options.
-    Returns void.
+    Validates user input for a number of different selections.
+
+    Parameters:
+    -----------
+    :param choice:
+        Is what the user put selected to be validated.
+    :param parameters:
+        All of the possible valid selections the user can make.
+
+    Returns:
+    --------
+    :return:
+        The string value of the validated choice that the user made.
     """
 
     while choice not in parameters:
@@ -18,5 +31,5 @@ def validate_input(choice, parameters):
 
 
 def strip_keys(inputted, to_strip):
-    inputted = re.sub(to_strip, "", inputted)
+    inputted = sub(to_strip, "", inputted)
     return inputted
